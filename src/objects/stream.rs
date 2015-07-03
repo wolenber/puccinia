@@ -40,13 +40,10 @@ impl Output for PdfStream {
 
         let contents = self.contents.iter()
             .fold("".to_owned(), |acc, item|
-                if acc == "" {
-                    acc + item
-                } else {
-                    acc + "\n" + item
-                });
+                acc + "\n" + item)
+            + "\n";
 
-        format!("{}\nstream\n{}\nendstream", dict.output(), contents)
+        format!("{}\nstream{}endstream", dict.output(), contents)
     }
 }
 
@@ -58,7 +55,7 @@ mod test {
 
     #[test]
     fn output_empty() {
-        const EXPECTED: &'static str = "<<\n/Length 1\n>>\nstream\nendstream";
+        const EXPECTED: &'static str = "<<\n/Length 0\n>>\nstream\nendstream";
         let actual = PdfStream::new().output();
         assert_eq!(actual, EXPECTED);
     }

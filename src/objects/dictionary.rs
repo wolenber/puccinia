@@ -82,7 +82,7 @@ mod test {
     fn output_populated() {
         const EXPECTED: &'static str = "<<\n/Foo <<\n>>\n>>";
         let mut dict = PdfDictionary::new();
-        dict.set("Foo".to_owned(), PdfDictionary::new());
+        dict.set("Foo", PdfDictionary::new());
         let actual = dict.output();
         assert_eq!(actual, EXPECTED);
     }
