@@ -1,0 +1,4 @@
+[package]
+name = "puccinia"
+version = "0.1.0"
+authors = ["Cedrick Cooke <cedrickc@zoho.com>"]
