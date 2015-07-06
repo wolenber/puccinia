@@ -80,6 +80,7 @@ impl ResourceReferences {
 }
 
 impl FontId {
+    /// Ease of use function, getting the name of the font.
     pub fn get_name(&self) -> String {
         format!("F{}", self.0)
     }
